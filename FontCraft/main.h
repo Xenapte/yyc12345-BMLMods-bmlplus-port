@@ -1,11 +1,14 @@
 #pragma once
 
-#include <BML/BMLAll.h>
+#include <BMLPlus/BMLAll.h>
+#include <windows.h>
 #include <gdiplus.h>
 #include <vector>
 #include <string>
+#include <basetsd.h>
 
 using namespace Gdiplus;
+typedef const char* C_CKSTRING;
 
 extern "C" {
 	__declspec(dllexport) IMod* BMLEntry(IBML* bml);
@@ -28,19 +31,19 @@ class FontCraft : public IMod {
 		ckarrayData()
 	{}
 
-	virtual CKSTRING GetID() override { return "FontCraft"; }
-	virtual CKSTRING GetVersion() override { return BML_VERSION; }
-	virtual CKSTRING GetName() override { return "Font Craft"; }
-	virtual CKSTRING GetAuthor() override { return "yyc12345"; }
-	virtual CKSTRING GetDescription() override { return "Change Ballance Font."; }
+	virtual C_CKSTRING GetID() override { return "FontCraft"; }
+	virtual C_CKSTRING GetVersion() override { return BML_VERSION; }
+	virtual C_CKSTRING GetName() override { return "Font Craft"; }
+	virtual C_CKSTRING GetAuthor() override { return "yyc12345"; }
+	virtual C_CKSTRING GetDescription() override { return "Change Ballance Font."; }
 	DECLARE_BML_VERSION;
 
 	private:
 	virtual void OnLoad() override;
 	virtual void OnUnload() override;
-	virtual void OnLoadObject(CKSTRING filename, BOOL isMap, CKSTRING masterName,
-		CK_CLASSID filterClass, BOOL addtoscene, BOOL reuseMeshes, BOOL reuseMaterials,
-		BOOL dynamic, XObjectArray* objArray, CKObject* masterObj) override;
+	virtual void OnLoadObject(C_CKSTRING filename, CKBOOL isMap, C_CKSTRING masterName,
+		CK_CLASSID filterClass, CKBOOL addtoscene, CKBOOL reuseMeshes, CKBOOL reuseMaterials,
+		CKBOOL dynamic, XObjectArray* objArray, CKObject* masterObj) override;
 
 	IProperty* m_core_props[6];
 

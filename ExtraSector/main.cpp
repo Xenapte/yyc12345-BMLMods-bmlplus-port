@@ -1,6 +1,7 @@
 #include "main.h"
 #include <string>
 #include <stdexcept>
+#include <cstdarg>
 
 void StdstringVPrintf(std::string* strl, const char* format, va_list argptr) {
 	int count = _vsnprintf(NULL, 0, format, argptr);
@@ -27,9 +28,9 @@ IMod* BMLEntry(IBML* bml) {
 //
 //}
 
-void ExtraSector::OnLoadObject(CKSTRING filename, BOOL isMap, CKSTRING masterName,
-	CK_CLASSID filterClass, BOOL addtoscene, BOOL reuseMeshes, BOOL reuseMaterials,
-	BOOL dynamic, XObjectArray* objArray, CKObject* masterObj) {
+void ExtraSector::OnLoadObject(C_CKSTRING filename, CKBOOL isMap, C_CKSTRING masterName,
+	CK_CLASSID filterClass, CKBOOL addtoscene, CKBOOL reuseMeshes, CKBOOL reuseMaterials,
+	CKBOOL dynamic, XObjectArray* objArray, CKObject* masterObj) {
 	// only active for map
 	if (!isMap) return;
 
@@ -56,7 +57,7 @@ void ExtraSector::OnLoadObject(CKSTRING filename, BOOL isMap, CKSTRING masterNam
 	for (int index = 9; index < 9 + 1000; ++index) {
 		// get group
 		StdstringPrintf(&sector_group_name, "Sector_%d", index);
-		sector_group = (CKGroup*)ctx->GetObjectByNameAndClass(sector_group_name.c_str(), CKCID_GROUP, NULL);
+		sector_group = (CKGroup*)ctx->GetObjectByNameAndClass(sector_group_name.data(), CKCID_GROUP, NULL);
 		if (sector_group == NULL) {
 			GetLogger()->Info("Attribute modify ok. Exit with sector: %d", index - 1);
 			detected_level = index - 1;

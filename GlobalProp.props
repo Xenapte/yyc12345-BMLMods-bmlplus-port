@@ -18,7 +18,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(BMLDEV_PATH)\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>BML.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
       <EnableUAC>false</EnableUAC>
     </Link>

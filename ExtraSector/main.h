@@ -1,6 +1,8 @@
 #pragma once
 
-#include <BML/BMLAll.h>
+#include <BMLPlus/BMLAll.h>
+
+typedef const char* C_CKSTRING;
 
 extern "C" {
 	__declspec(dllexport) IMod* BMLEntry(IBML* bml);
@@ -12,19 +14,19 @@ public:
 		detected_level(8) {
 	}
 
-	virtual CKSTRING GetID() override { return "ExtraSector"; }
-	virtual CKSTRING GetVersion() override { return BML_VERSION; }
-	virtual CKSTRING GetName() override { return "Extra Sector"; }
-	virtual CKSTRING GetAuthor() override { return "2jjy, Gamepiaynmo, yyc12345"; }
-	virtual CKSTRING GetDescription() override { return "Yet Another 999 Sector Loader."; }
+	virtual C_CKSTRING GetID() override { return "ExtraSector"; }
+	virtual C_CKSTRING GetVersion() override { return BML_VERSION; }
+	virtual C_CKSTRING GetName() override { return "Extra Sector"; }
+	virtual C_CKSTRING GetAuthor() override { return "2jjy, Gamepiaynmo, yyc12345"; }
+	virtual C_CKSTRING GetDescription() override { return "Yet Another 999 Sector Loader."; }
 	DECLARE_BML_VERSION;
 
 private:
 	int detected_level;
 
-	virtual void OnLoadObject(CKSTRING filename, BOOL isMap, CKSTRING masterName,
-		CK_CLASSID filterClass, BOOL addtoscene, BOOL reuseMeshes, BOOL reuseMaterials,
-		BOOL dynamic, XObjectArray* objArray, CKObject* masterObj) override;
+	virtual void OnLoadObject(C_CKSTRING filename, CKBOOL isMap, C_CKSTRING masterName,
+		CK_CLASSID filterClass, CKBOOL addtoscene, CKBOOL reuseMeshes, CKBOOL reuseMaterials,
+		CKBOOL dynamic, XObjectArray* objArray, CKObject* masterObj) override;
 	virtual void OnPostLoadLevel() override;
 };
 
