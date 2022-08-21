@@ -18,9 +18,9 @@ void BaseCmoCfg::OnLoad() {
 
 }
 
-void BaseCmoCfg::OnLoadObject(CKSTRING filename, BOOL isMap, CKSTRING masterName,
-	CK_CLASSID filterClass, BOOL addtoscene, BOOL reuseMeshes, BOOL reuseMaterials,
-	BOOL dynamic, XObjectArray* objArray, CKObject* masterObj) {
+void BaseCmoCfg::OnLoadObject(C_CKSTRING filename, CKBOOL isMap, C_CKSTRING masterName,
+	CK_CLASSID filterClass, CKBOOL addtoscene, CKBOOL reuseMeshes, CKBOOL reuseMaterials,
+	CKBOOL dynamic, XObjectArray* objArray, CKObject* masterObj) {
 
 	// process base.cmo
 	if (strcmp(filename, "base.cmo")) return;
@@ -34,13 +34,13 @@ void BaseCmoCfg::OnLoadObject(CKSTRING filename, BOOL isMap, CKSTRING masterName
 		return;
 	}
 
-	BOOL val = m_core_props[0]->GetBoolean();
+	CKBOOL val = m_core_props[0]->GetBoolean();
 	//CKParameter* fakeParam = (CKParameter*)ctx->CreateObject(CKCID_PARAMETER);
-	//fakeParam->SetGUID(CKPGUID_BOOL);
-	//fakeParam->SetValue(&val, sizeof(BOOL));
-	gamesettings->SetElementValue(0, 6, &val, sizeof(BOOL));
+	//fakeParam->SetGUID(CKPGUID_CKBOOL);
+	//fakeParam->SetValue(&val, sizeof(CKBOOL));
+	gamesettings->SetElementValue(0, 6, &val, sizeof(CKBOOL));
 	val = m_core_props[1]->GetBoolean();
-	gamesettings->SetElementValue(0, 7, &val, sizeof(BOOL));
+	gamesettings->SetElementValue(0, 7, &val, sizeof(CKBOOL));
 
 	GetLogger()->Info("GameSettings in base.cmo has been changed.");
 

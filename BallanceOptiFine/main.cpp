@@ -74,9 +74,9 @@ void BallanceOptiFine::OnLoad() {
 	}
 }
 
-void BallanceOptiFine::OnLoadObject(CKSTRING filename, BOOL isMap, CKSTRING masterName,
-	CK_CLASSID filterClass, BOOL addtoscene, BOOL reuseMeshes, BOOL reuseMaterials,
-	BOOL dynamic, XObjectArray* objArray, CKObject* masterObj) {
+void BallanceOptiFine::OnLoadObject(C_CKSTRING filename, CKBOOL isMap, C_CKSTRING masterName,
+	CK_CLASSID filterClass, CKBOOL addtoscene, CKBOOL reuseMeshes, CKBOOL reuseMaterials,
+	CKBOOL dynamic, XObjectArray* objArray, CKObject* masterObj) {
 	if (!isMap) return;
 	GetLogger()->Info("OptiFine detect loading map. Start processing.");
 	if (!m_enable_props[0]->GetBoolean()) return;

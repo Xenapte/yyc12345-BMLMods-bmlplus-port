@@ -1,6 +1,8 @@
 #pragma once
 
-#include <BML/BMLAll.h>
+#include <BMLPlus/BMLAll.h>
+
+typedef const char* C_CKSTRING;
 
 extern "C" {
 	__declspec(dllexport) IMod* BMLEntry(IBML* bml);
@@ -11,11 +13,11 @@ public:
 		IMod(bml) {
 	}
 
-	virtual CKSTRING GetID() override { return "Coredump"; }
-	virtual CKSTRING GetVersion() override { return BML_VERSION; }
-	virtual CKSTRING GetName() override { return "Runtime Virtools Context Dumper"; }
-	virtual CKSTRING GetAuthor() override { return "yyc12345"; }
-	virtual CKSTRING GetDescription() override { return "Dump runtime Virtools context into Virtools file."; }
+	virtual C_CKSTRING GetID() override { return "Coredump"; }
+	virtual C_CKSTRING GetVersion() override { return BML_VERSION; }
+	virtual C_CKSTRING GetName() override { return "Runtime Virtools Context Dumper"; }
+	virtual C_CKSTRING GetAuthor() override { return "yyc12345"; }
+	virtual C_CKSTRING GetDescription() override { return "Dump runtime Virtools context into Virtools file."; }
 	DECLARE_BML_VERSION;
 
 private:
